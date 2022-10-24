@@ -5,7 +5,7 @@
 
 import torch
 import time
-import _ext_add
+from add2 import ext_add
 
 
 def run(use_cuda=True):
@@ -22,7 +22,7 @@ def run(use_cuda=True):
     if use_cuda and torch.cuda.is_available():
         torch.cuda.synchronize()
     st = time.time()
-    _ext_add.torch_launch_add2(x, y, z, n)
+    ext_add.torch_launch_add2(x, y, z, n)
     if use_cuda and torch.cuda.is_available():
         torch.cuda.synchronize()
     et = time.time()

@@ -75,19 +75,21 @@ void launch_add2_gpu(const float * x, const float * y, float * z, int n) {
 ]
 
 now_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(now_dir)
+src_dir = os.path.join(parent_dir, "add2", "src")
 
 if torch.cuda.is_available():
     inline_module = load_inline(
         name="inline_extend", cpp_sources=cpu_sources,
         cuda_sources=cuda_sources,
         functions=["torch_launch_add2"],
-        extra_include_paths=[now_dir]
+        extra_include_paths=[src_dir]
     )
 else:
     inline_module = load_inline(
         name="inline_extend", cpp_sources=cpu_sources,
         functions=["torch_launch_add2"],
-        extra_include_paths=[now_dir]
+        extra_include_paths=[src_dir]
     )
 
 

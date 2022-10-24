@@ -9,7 +9,9 @@ import time
 
 use_cuda = True  # 是否开启cuda，用于测试cpu与GPU运行效果
 now_dir = os.path.dirname(os.path.abspath(__file__))
-file_list = os.listdir(now_dir)
+parent_dir = os.path.dirname(now_dir)
+src_dir = os.path.join(parent_dir, "add2", "src")
+file_list = os.listdir(src_dir)
 
 if torch.cuda.is_available():
     file_list = [
@@ -21,13 +23,13 @@ else:
         file for file in file_list
         if file.endswith(".cpp")
     ]
-sources = [os.path.join(now_dir, file) for file in file_list]
+sources = [os.path.join(src_dir, file) for file in file_list]
 
 
 add_module = load(
     name="_ext_add",
     sources=sources,
-    extra_include_paths=[now_dir]
+    extra_include_paths=[src_dir]
 )
 
 

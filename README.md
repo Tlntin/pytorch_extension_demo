@@ -20,17 +20,19 @@ python3 setup.py install # 或者pip install .
 ```
 - setup方式运行扩展
 ```bash
-python3 test.py
+python3 test/test.py
 ```
 
 - load方式运行扩展
 ```bash
-python3 test2.py
+cd test
+python3 test/test2.py
 ```
 
 - load_inline方式运行扩展 
 ```bash
-python3 test3.py
+cd test
+python3 test/test3.py
 ```
 
 
