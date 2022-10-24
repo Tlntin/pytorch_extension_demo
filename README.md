@@ -25,13 +25,11 @@ python3 test/test.py
 
 - load方式运行扩展
 ```bash
-cd test
 python3 test/test2.py
 ```
 
 - load_inline方式运行扩展 
 ```bash
-cd test
 python3 test/test3.py
 ```
 
